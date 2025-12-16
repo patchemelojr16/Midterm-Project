@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    int score1, score2, finalGrade;
+
+    // Input students information
+    cout << "Enter student name: ";
+    cin >> name;
+    cout << "Enter first score: ";
+    cin >> score1;
+    cout << "Enter second score: ";
+    cin >> score2;
+
+    // Calculate final grade
+    finalGrade = (score1 + score2) / 2;
+
+    // Display results
+    cout << "Final grade for " << name << " is: " << finalGrade << endl;
+
+    if (finalGrade >= 75) {
+        cout << "Status: Passed" << endl;
+    } else {
+        cout << "Status: Failed" << endl;
+    }
+
+    return 0;
+}
