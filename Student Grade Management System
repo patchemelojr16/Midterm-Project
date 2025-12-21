@@ -18,19 +18,27 @@ int main() {
     cout << "========================================" << endl;
     cout << "    STUDENT GRADE MANAGEMENT SYSTEM     " << endl;
     cout << "========================================" << endl;
+    cout << " Welcome! This system allows you to: " << endl;
+    cout << " 1. Input Student Names" << endl;
+    cout << " 2. Record Final Grades" << endl;
+    cout << " 3. Generate Pass/Fail Report" << endl;
+    cout << "========================================" << endl;
 
-    cout << "Enter the number of students: ";
+    cout << "\nTo begin, enter the number of students: ";
     cin >> numStudents;
+    cin.ignore(); 
 
+    
     for (int i = 0; i < numStudents; i++) {
         Student s;
-        cout << "\nEnter name for student " << i + 1 << ": ";
-        cin.ignore();
+        cout << "\n--- Student #" << i + 1 << " ---" << endl;
+        cout << "Enter Full Name: ";
         getline(cin, s.name);
-        cout << "Enter final grade: ";
+        
+        cout << "Enter Final Grade: ";
         cin >> s.grade;
+        cin.ignore(); 
 
-        // Logic for Pass/Fail status
         if (s.grade >= 75) {
             s.status = "Passed";
         } else {
@@ -40,18 +48,20 @@ int main() {
         students.push_back(s);
     }
 
-    // Displaying the final management report
-    cout << "\n\n" << setw(20) << left << "STUDENT NAME" 
+   
+    cout << "\n\n" << setw(25) << left << "STUDENT NAME" 
          << setw(10) << "GRADE" 
          << setw(10) << "STATUS" << endl;
-    cout << "------------------------------------------" << endl;
+    cout << "-----------------------------------------------" << endl;
 
     for (const auto& s : students) {
-        cout << setw(20) << left << s.name 
+        cout << setw(25) << left << s.name 
              << setw(10) << fixed << setprecision(2) << s.grade 
              << setw(10) << s.status << endl;
     }
 
-    cout << "==========================================" << endl;
+    cout << "===============================================" << endl;
+    cout << "End of Report. Thank you for using the system!" << endl;
+
     return 0;
 }
