@@ -14,8 +14,29 @@ struct Student {
 int main() {
     int numStudents;
     vector<Student> students;
+    string name,code, name2,date,black;
+
+    cout << "Enter Your name: ";
+    getline (cin,name);
+    cout << "Enter Your Subject Instructor: ";
+    getline (cin,name2);
+    cout << "Enter Date: ";
+    getline (cin,date);
+    cout << "Enter Your Code: ";
+    getline (cin,code);
+    cout << "Enter Your Black/year: ";
+    getline (cin, black);
 
     cout << "========================================" << endl;
+    cout << "Submitted By                : " << name << endl;
+    cout << "Submitted To                : " << name2 << endl;
+    cout << "Date                        : " << date << endl;
+    cout << "Black/Year                  : " << black << endl;
+    cout << "code                        : " << code  << endl;
+    cout << "======================================== "<< endl;
+    
+    
+    cout << "\n========================================" << endl;
     cout << "    STUDENT GRADE MANAGEMENT SYSTEM     " << endl;
     cout << "========================================" << endl;
     cout << " Welcome! This system allows you to: " << endl;
