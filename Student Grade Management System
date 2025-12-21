@@ -1,29 +1,57 @@
 #include <iostream>
+#include <string>
+#include <vector>
+#include <iomanip>
+
 using namespace std;
 
-int main() {
+struct Student {
     string name;
-    int score1, score2, finalGrade;
+    double grade;
+    string status;
+};
 
-    // Input students information
-    cout << "Enter student name: ";
-    cin >> name;
-    cout << "Enter first score: ";
-    cin >> score1;
-    cout << "Enter second score: ";
-    cin >> score2;
+int main() {
+    int numStudents;
+    vector<Student> students;
 
-    // Calculate final grade
-    finalGrade = (score1 + score2) / 2;
+    cout << "========================================" << endl;
+    cout << "    STUDENT GRADE MANAGEMENT SYSTEM     " << endl;
+    cout << "========================================" << endl;
 
-    // Display results
-    cout << "Final grade for " << name << " is: " << finalGrade << endl;
+    cout << "Enter the number of students: ";
+    cin >> numStudents;
 
-    if (finalGrade >= 75) {
-        cout << "Status: Passed" << endl;
-    } else {
-        cout << "Status: Failed" << endl;
+    for (int i = 0; i < numStudents; i++) {
+        Student s;
+        cout << "\nEnter name for student " << i + 1 << ": ";
+        cin.ignore();
+        getline(cin, s.name);
+        cout << "Enter final grade: ";
+        cin >> s.grade;
+
+        // Logic for Pass/Fail status
+        if (s.grade >= 75) {
+            s.status = "Passed";
+        } else {
+            s.status = "Failed";
+        }
+
+        students.push_back(s);
     }
 
+    // Displaying the final management report
+    cout << "\n\n" << setw(20) << left << "STUDENT NAME" 
+         << setw(10) << "GRADE" 
+         << setw(10) << "STATUS" << endl;
+    cout << "------------------------------------------" << endl;
+
+    for (const auto& s : students) {
+        cout << setw(20) << left << s.name 
+             << setw(10) << fixed << setprecision(2) << s.grade 
+             << setw(10) << s.status << endl;
+    }
+
+    cout << "==========================================" << endl;
     return 0;
 }
